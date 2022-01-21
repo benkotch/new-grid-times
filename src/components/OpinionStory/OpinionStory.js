@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
+import { QUERIES } from "../../constants";
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
@@ -17,6 +18,18 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 21px;
+  justify-content: space-between;
+
+  @media screen and ${QUERIES.tabletOnly} {
+    flex-direction: column;
+    flex-basis: 172px;
+    max-width: 172px;
+    min-width: 172px;
+  }
 `;
 
 const Avatar = styled.img`

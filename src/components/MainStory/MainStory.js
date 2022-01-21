@@ -44,7 +44,7 @@ const Abstract = styled.p`
   overflow: hidden;
 
   @media screen and ${QUERIES.tabletOnly} {
-    -webkit-line-clamp: 24;
+    -webkit-line-clamp: 16;
   }
 `;
 

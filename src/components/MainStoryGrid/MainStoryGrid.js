@@ -1,17 +1,14 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import {
-  MAIN_STORY,
-  OPINION_STORIES,
-  SECONDARY_STORIES,
-} from '../../data';
+import { MAIN_STORY, OPINION_STORIES, SECONDARY_STORIES } from "../../data";
 
-import SectionTitle from '../SectionTitle';
-import MainStory from '../MainStory';
-import SecondaryStory from '../SecondaryStory';
-import OpinionStory from '../OpinionStory';
-import Advertisement from '../Advertisement';
+import SectionTitle from "../SectionTitle";
+import MainStory from "../MainStory";
+import SecondaryStory from "../SecondaryStory";
+import OpinionStory from "../OpinionStory";
+import Advertisement from "../Advertisement";
+import { COLORS, QUERIES } from "../../constants";
 
 const MainStoryGrid = () => {
   return (
@@ -30,11 +27,11 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <StoryListOpinion>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStory key={story.id} {...story} />
           ))}
-        </StoryList>
+        </StoryListOpinion>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -47,10 +44,10 @@ const MainStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-areas:
-    'main-story'
-    'secondary-stories'
-    'opinion-stories'
-    'advertisement';
+    "main-story"
+    "secondary-stories"
+    "opinion-stories"
+    "advertisement";
   gap: 48px;
   margin-bottom: 48px;
 `;
@@ -66,6 +63,25 @@ const SecondaryStorySection = styled.section`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  & > :not(:last-of-type) {
+    padding-bottom: 16px;
+    border-bottom: 1px solid ${COLORS.gray[300]};
+    margin-bottom: 16px;
+  }
+`;
+
+const StoryListOpinion = styled(StoryList)`
+  @media screen and ${QUERIES.tabletOnly} {
+    gap: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media screen and ${QUERIES.tabletOnly} {
+    & > :not(:last-of-type) {
+      border-bottom: none;
+    }
+  }
 `;
 
 const OpinionSection = styled.section`
