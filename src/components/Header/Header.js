@@ -83,13 +83,18 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: space-between;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media screen and ${QUERIES.desktopAndUp} {
+    margin-bottom: 80px;
+    align-items: flex-end;
+  }
 `;
 
 const HeaderItem = styled.div`
   display: flex;
   flex: 1;
   align-self: center;
-  gap: 32px;
+  gap: 22px;
   padding-left: 8px;
 
   & button {
@@ -109,6 +114,7 @@ const SubscriberAction = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2px;
 `;
 
 const Link = styled.a`
@@ -123,6 +129,8 @@ const Link = styled.a`
     font-size: calc(14 / 16 * 1rem);
     text-decoration: underline;
     font-style: italic;
+
+    margin-top: 8px;
   }
 `;
 
