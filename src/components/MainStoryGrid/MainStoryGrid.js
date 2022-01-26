@@ -56,27 +56,29 @@ const Wrapper = styled.div`
       "main-story secondary-stories"
       "advertisement advertisement"
       "opinion-stories opinion-stories";
-    gap: 32px;
+    gap: 16px;
+    row-gap: 48px;
     grid-template-columns: 2.1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto auto;
   }
   @media screen and ${QUERIES.laptopAndUp} {
     grid-template-areas:
       "main-story secondary-stories opinion-stories"
       "main-story advertisement advertisement";
-    gap: 0;
+    gap: 16px;
     grid-template-columns: 3.7fr 2.9fr 2.2fr;
     grid-template-rows: 1fr 152px;
-    /* background-color: ${COLORS.gray[300]}; */
   }
 `;
 
 const MainStorySection = styled.section`
-  background-color: ${COLORS.gray[100]};
-  border-right: 1px solid ${COLORS.gray[300]};
-  padding-right: 16px;
-  margin-right: 16px;
   grid-area: main-story;
+
+  @media screen and ${QUERIES.tabletAndUp} {
+    background-color: ${COLORS.gray[100]};
+    border-right: 1px solid ${COLORS.gray[300]};
+    padding-right: 16px;
+  }
 `;
 
 const SecondaryStorySection = styled.section`
@@ -92,11 +94,18 @@ const StoryList = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${COLORS.gray[100]};
-  padding-bottom: 16px;
+
   & > :not(:last-of-type) {
     padding-bottom: 16px;
     border-bottom: 1px solid ${COLORS.gray[300]};
     margin-bottom: 16px;
+  }
+  @media screen and ${QUERIES.tabletOnly} {
+    & > :not(:last-of-type) {
+      padding-bottom: 0;
+      border-bottom: none;
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -117,15 +126,17 @@ const StoryListOpinion = styled(StoryList)`
 const OpinionSection = styled.section`
   background-color: ${COLORS.gray[100]};
   grid-area: opinion-stories;
-  border-left: 1px solid ${COLORS.gray[300]};
-  padding-left: 16px;
+  @media screen and ${QUERIES.laptopAndUp} {
+    border-left: 1px solid ${COLORS.gray[300]};
+    padding-left: 16px;
+  }
 `;
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
   background-color: ${COLORS.gray[100]};
   border-top: 1px solid ${COLORS.gray[300]};
-  margin-top: 16px;
+  /* margin-top: 16px; */
   padding-top: 16px;
 `;
 

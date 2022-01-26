@@ -28,7 +28,8 @@ const Wrapper = styled.article`
     flex-direction: column;
     flex-basis: 172px;
     max-width: 172px;
-    min-width: 172px;
+    gap: 11px;
+    /* min-width: 172px; */
   }
 `;
 
